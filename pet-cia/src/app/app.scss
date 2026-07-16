@@ -1,0 +1,35 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+/* Botão flutuante de WhatsApp */
+.wa-fab {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 20px 14px 16px;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-head);
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 14px 30px rgba(255, 107, 90, 0.45);
+  transition: transform .15s ease, background .2s ease;
+}
+.wa-fab:hover { transform: translateY(-3px) scale(1.02); background: var(--accent-dark); }
+.wa-fab span[aria-hidden] { font-size: 1.3rem; }
+
+@media (max-width: 560px) {
+  .wa-fab { right: 16px; bottom: 16px; padding: 14px; }
+  .wa-fab__label { display: none; }
+}

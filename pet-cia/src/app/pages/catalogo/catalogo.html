@@ -1,0 +1,68 @@
+<!-- ===== Cabeçalho ===== -->
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Catálogo</span>
+    <h1>Nossos produtos</h1>
+    <p>Uma amostra do que você encontra na loja. Navegue por categoria e chame no WhatsApp para preço e disponibilidade.</p>
+  </div>
+</section>
+
+<!-- ===== Aviso vitrine ===== -->
+<div class="container">
+  <div class="vitrine-banner">
+    <span class="vitrine-banner__icon" aria-hidden="true">🛒</span>
+    <p>
+      <strong>Vitrine demonstrativa.</strong> A compra online chega em breve — por enquanto,
+      confira estoque e valores pelo WhatsApp ou aqui na loja.
+    </p>
+  </div>
+</div>
+
+<!-- ===== Filtros + grade ===== -->
+<section class="section catalog">
+  <div class="container">
+
+    <div class="filters" role="group" aria-label="Filtrar por categoria">
+      <button
+        class="chip"
+        [class.is-active]="activeCat() === 'all'"
+        (click)="setCat('all')">
+        Todos
+      </button>
+      @for (c of categories; track c.id) {
+        <button
+          class="chip"
+          [class.is-active]="activeCat() === c.id"
+          (click)="setCat(c.id)">
+          <span aria-hidden="true">{{ c.icon }}</span> {{ c.name }}
+        </button>
+      }
+    </div>
+
+    <p class="result-count">{{ filtered().length }} produto(s) nesta vitrine</p>
+
+    <div class="catalog-grid">
+      @for (p of filtered(); track p.id) {
+        <app-product-card [product]="p" />
+      } @empty {
+        <p>Nenhum produto nesta categoria por enquanto.</p>
+      }
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-band">
+  <div class="container cta-band__inner">
+    <div>
+      <h2>Não achou o que procura?</h2>
+      <p>Temos muito mais na loja física. Pergunta pra gente que a gente encontra! 🐾</p>
+    </div>
+    <div class="cta-band__actions">
+      <a [href]="wa" target="_blank" rel="noopener" class="btn btn--primary">
+        <span aria-hidden="true">💬</span> Pedir pelo WhatsApp
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,169 @@
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <span class="eyebrow">🐾 Sua loja de bairro há mais de 12 anos</span>
+      <h1>Tudo para o seu pet, <span class="hl">com carinho de quem entende</span>.</h1>
+      <p class="hero__lead">
+        Ração, brinquedos, higiene e acessórios das melhores marcas — com atendimento
+        de verdade e entrega no mesmo dia aqui no bairro.
+      </p>
+
+      <div class="hero__actions">
+        <a routerLink="/catalogo" class="btn btn--brand">Ver catálogo</a>
+        <a [href]="wa" target="_blank" rel="noopener" class="btn btn--ghost">
+          <span aria-hidden="true">💬</span> Pedir pelo WhatsApp
+        </a>
+      </div>
+
+      <div class="hero__trust">
+        <div class="avatars" aria-hidden="true">
+          <span>🐶</span><span>🐱</span><span>🐰</span><span>🐦</span>
+        </div>
+        <div class="hero__trust-text">
+          <span class="stars">★★★★★</span>
+          <span>Mais de <strong>3 mil tutores</strong> confiam na Pet&amp;Cia</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__visual" aria-hidden="true">
+      <div class="blob"></div>
+      <div class="hero-photo">🐕</div>
+      <div class="float-card float-card--product">
+        <span class="fc-emoji">🦴</span>
+        <div>
+          <strong>Ração Premium</strong>
+          <small>Entrega hoje 🛵</small>
+        </div>
+      </div>
+      <div class="float-card float-card--rating">
+        <span class="fc-emoji">😻</span>
+        <div>
+          <strong>Clientes felizes</strong>
+          <small class="stars">★★★★★</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAIXA DE NÚMEROS ============ -->
+<section class="stats-strip">
+  <div class="container stats-strip__inner">
+    @for (s of stats; track s.label) {
+      <div class="stat">
+        <span class="stat__value">{{ s.value }}</span>
+        <span class="stat__label">{{ s.label }}</span>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- ============ CATEGORIAS ============ -->
+<section class="section section--surface">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Categorias</span>
+      <h2>Encontre tudo em um só lugar</h2>
+      <p>Do filhote ao idoso, do aquário ao viveiro — temos o essencial para cada bichinho.</p>
+    </div>
+
+    <div class="cat-grid">
+      @for (c of categories; track c.id) {
+        <a routerLink="/catalogo" [queryParams]="{ cat: c.id }" class="cat-card card">
+          <span class="cat-card__icon" aria-hidden="true">{{ c.icon }}</span>
+          <h3>{{ c.name }}</h3>
+          <p>{{ c.blurb }}</p>
+          <span class="cat-card__count">{{ c.count }} itens →</span>
+        </a>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIFERENCIAIS ============ -->
+<section class="section section--tint">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Por que a Pet&amp;Cia</span>
+      <h2>Mais que uma loja, um cuidado</h2>
+    </div>
+
+    <div class="diff-grid">
+      @for (d of differentials; track d.title) {
+        <div class="diff-card">
+          <span class="diff-card__icon" aria-hidden="true">{{ d.icon }}</span>
+          <h3>{{ d.title }}</h3>
+          <p>{{ d.text }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ============ DESTAQUES ============ -->
+<section class="section section--surface">
+  <div class="container">
+    <div class="section-head section-head--between">
+      <div>
+        <span class="eyebrow">Vitrine</span>
+        <h2>Destaques da semana</h2>
+      </div>
+      <a routerLink="/catalogo" class="btn btn--ghost">Ver catálogo completo</a>
+    </div>
+
+    <div class="feature-grid">
+      @for (p of featured; track p.id) {
+        <app-product-card [product]="p" />
+      }
+    </div>
+
+    <p class="vitrine-note">
+      🛒 <strong>Compra online chega em breve.</strong> Por enquanto, os preços e o estoque
+      você confere pelo WhatsApp ou aqui na loja.
+    </p>
+  </div>
+</section>
+
+<!-- ============ DEPOIMENTOS ============ -->
+<section class="section section--tint">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Depoimentos</span>
+      <h2>Quem é da casa, recomenda</h2>
+    </div>
+
+    <div class="test-grid">
+      @for (t of testimonials; track t.name) {
+        <figure class="test-card card">
+          <span class="stars">★★★★★</span>
+          <blockquote>“{{ t.text }}”</blockquote>
+          <figcaption>
+            <span class="test-avatar" aria-hidden="true">{{ t.avatar }}</span>
+            <span>
+              <strong>{{ t.name }}</strong><br>
+              <small>{{ t.pet }}</small>
+            </span>
+          </figcaption>
+        </figure>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="cta-band">
+  <div class="container cta-band__inner">
+    <div>
+      <h2>Precisa de algo para o seu pet hoje?</h2>
+      <p>Chame a gente no WhatsApp ou passe na loja. A gente resolve rapidinho. 🐾</p>
+    </div>
+    <div class="cta-band__actions">
+      <a [href]="wa" target="_blank" rel="noopener" class="btn btn--primary">
+        <span aria-hidden="true">💬</span> Falar no WhatsApp
+      </a>
+      <a routerLink="/contato" class="btn btn--light">Como chegar</a>
+    </div>
+  </div>
+</section>

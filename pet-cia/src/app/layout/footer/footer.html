@@ -1,0 +1,45 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+
+    <div class="footer-brand">
+      <a routerLink="/" class="logo">
+        <span class="logo-mark" aria-hidden="true">🐾</span>
+        <span class="logo-text">Pet<span class="amp">&amp;</span>Cia</span>
+      </a>
+      <p class="footer-slogan">{{ store.slogan }}</p>
+      <a class="btn btn--primary" [href]="wa" target="_blank" rel="noopener">
+        <span aria-hidden="true">💬</span> Fale no WhatsApp
+      </a>
+    </div>
+
+    <nav class="footer-col" aria-label="Navegação do rodapé">
+      <h4>Navegação</h4>
+      <a routerLink="/">Início</a>
+      <a routerLink="/sobre">Sobre a loja</a>
+      <a routerLink="/catalogo">Catálogo</a>
+      <a routerLink="/contato">Contato</a>
+    </nav>
+
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <p>{{ store.address }}</p>
+      <p><a [href]="'tel:+' + store.whatsapp">{{ store.whatsappLabel }}</a></p>
+      <p><a [href]="'mailto:' + store.email">{{ store.email }}</a></p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Horários</h4>
+      @for (h of store.hours; track h.day) {
+        <p><span class="day">{{ h.day }}</span><br>{{ h.time }}</p>
+      }
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p>© {{ year }} Pet&amp;Cia. Todos os direitos reservados.</p>
+      <p class="demo-note">Site modelo (portfólio) — conteúdo e imagens são ilustrativos.</p>
+    </div>
+  </div>
+</footer>

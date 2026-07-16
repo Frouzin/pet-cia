@@ -1,0 +1,19 @@
+<article class="product card">
+  <div class="product__media" [class]="'cat-' + product().category">
+    <span class="product__emoji" aria-hidden="true">{{ product().emoji }}</span>
+    @if (product().tag) {
+      <span class="product__tag">{{ product().tag }}</span>
+    }
+  </div>
+
+  <div class="product__body">
+    <span class="product__brand">{{ product().brand }}</span>
+    <h3 class="product__name">{{ product().name }}</h3>
+    <span class="product__size">{{ product().size }}</span>
+
+    <div class="product__foot">
+      <span class="product__price">{{ product().priceHint }}</span>
+      <a class="btn btn--ghost btn--sm" [href]="wa()" target="_blank" rel="noopener">Consultar</a>
+    </div>
+  </div>
+</article>

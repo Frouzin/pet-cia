@@ -1,0 +1,30 @@
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a routerLink="/" class="logo" (click)="closeMenu()" aria-label="Pet&amp;Cia — página inicial">
+      <span class="logo-mark" aria-hidden="true">🐾</span>
+      <span class="logo-text">Pet<span class="amp">&amp;</span>Cia</span>
+    </a>
+
+    <button
+      class="burger"
+      type="button"
+      [class.is-open]="menuOpen()"
+      [attr.aria-expanded]="menuOpen()"
+      aria-label="Abrir menu"
+      (click)="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" [class.is-open]="menuOpen()" aria-label="Navegação principal">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Início</a>
+      <a routerLink="/sobre" routerLinkActive="active" (click)="closeMenu()">Sobre</a>
+      <a routerLink="/catalogo" routerLinkActive="active" (click)="closeMenu()">Catálogo</a>
+      <a routerLink="/contato" routerLinkActive="active" (click)="closeMenu()">Contato</a>
+      <a class="btn btn--primary nav-cta" [href]="wa" target="_blank" rel="noopener" (click)="closeMenu()">
+        <span aria-hidden="true">💬</span> WhatsApp
+      </a>
+    </nav>
+
+  </div>
+</header>

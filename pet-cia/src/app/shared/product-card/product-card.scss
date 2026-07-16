@@ -1,0 +1,87 @@
+.product {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+}
+.product:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+  border-color: var(--brand-tint-2);
+}
+
+.product__media {
+  position: relative;
+  aspect-ratio: 16 / 11;
+  display: grid;
+  place-items: center;
+  background: var(--brand-tint);
+}
+.product__emoji {
+  font-size: 3.4rem;
+  filter: drop-shadow(0 6px 10px rgba(27, 42, 51, 0.14));
+}
+
+/* fundos por categoria para dar variedade visual */
+.cat-racao      { background: linear-gradient(140deg, #FFF1E4, #FFE1CC); }
+.cat-higiene    { background: linear-gradient(140deg, #E4F4F1, #CFEAE4); }
+.cat-brinquedos { background: linear-gradient(140deg, #EAF0FF, #D8E4FF); }
+.cat-acessorios { background: linear-gradient(140deg, #E7F1F5, #D3E6EC); }
+.cat-aves       { background: linear-gradient(140deg, #E9F7FF, #D2ECFA); }
+.cat-farmacia   { background: linear-gradient(140deg, #F0EAFB, #E1D6F6); }
+
+.product__tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-sm);
+}
+
+.product__body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 18px 18px 20px;
+  flex: 1;
+}
+.product__brand {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+.product__name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.25;
+}
+.product__size {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.product__foot {
+  margin-top: auto;
+  padding-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.product__price {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+.btn--sm { padding: 9px 16px; font-size: 0.85rem; }

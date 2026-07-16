@@ -1,0 +1,109 @@
+<!-- ===== Cabeçalho ===== -->
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Contato</span>
+    <h1>Fale com a Pet&amp;Cia</h1>
+    <p>Estamos pertinho de você. Passe na loja, ligue ou mande mensagem — a gente adora ajudar.</p>
+  </div>
+</section>
+
+<section class="section contact">
+  <div class="container contact__grid">
+
+    <!-- Informações -->
+    <div class="contact__info">
+      <a class="info-card card" [href]="mapsUrl" target="_blank" rel="noopener">
+        <span class="info-card__icon" aria-hidden="true">📍</span>
+        <div>
+          <h3>Endereço</h3>
+          <p>{{ store.address }}</p>
+          <span class="info-card__link">Abrir no Google Maps →</span>
+        </div>
+      </a>
+
+      <a class="info-card card" [href]="wa" target="_blank" rel="noopener">
+        <span class="info-card__icon" aria-hidden="true">💬</span>
+        <div>
+          <h3>WhatsApp</h3>
+          <p>{{ store.whatsappLabel }}</p>
+          <span class="info-card__link">Chamar agora →</span>
+        </div>
+      </a>
+
+      <a class="info-card card" [href]="'mailto:' + store.email">
+        <span class="info-card__icon" aria-hidden="true">✉️</span>
+        <div>
+          <h3>E-mail</h3>
+          <p>{{ store.email }}</p>
+        </div>
+      </a>
+
+      <div class="hours card">
+        <h3>🕗 Horário de funcionamento</h3>
+        <ul>
+          @for (h of store.hours; track h.day) {
+            <li><span>{{ h.day }}</span><strong>{{ h.time }}</strong></li>
+          }
+        </ul>
+      </div>
+    </div>
+
+    <!-- Formulário -->
+    <div class="contact__form-wrap card">
+      @if (sent()) {
+        <div class="form-success">
+          <span class="form-success__icon" aria-hidden="true">🎉</span>
+          <h3>Mensagem enviada!</h3>
+          <p>Obrigado pelo contato. Retornamos pra você o mais rápido possível. 🐾</p>
+          <button class="btn btn--ghost" (click)="sent.set(false)">Enviar outra mensagem</button>
+        </div>
+      } @else {
+        <h2>Envie uma mensagem</h2>
+        <p class="form-hint">Preencha e retornamos pelo canal de sua preferência.</p>
+
+        <form #f="ngForm" (ngSubmit)="submit(f.valid)" novalidate>
+          <div class="field">
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" type="text" [(ngModel)]="form.nome" required placeholder="Seu nome">
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="email">E-mail</label>
+              <input id="email" name="email" type="email" [(ngModel)]="form.email" required placeholder="voce@email.com">
+            </div>
+            <div class="field">
+              <label for="telefone">Telefone</label>
+              <input id="telefone" name="telefone" type="tel" [(ngModel)]="form.telefone" placeholder="(11) 90000-0000">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="4" [(ngModel)]="form.mensagem" required placeholder="Como podemos ajudar o seu pet?"></textarea>
+          </div>
+
+          @if (f.submitted && f.invalid) {
+            <p class="form-error">Por favor, preencha os campos obrigatórios.</p>
+          }
+
+          <button type="submit" class="btn btn--primary btn--block">Enviar mensagem</button>
+          <p class="form-note">Formulário demonstrativo — no site final ele envia direto para a loja.</p>
+        </form>
+      }
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== Mapa (placeholder) ===== -->
+<section class="map-section">
+  <div class="map-placeholder">
+    <div class="map-pin">📍</div>
+    <div class="map-card">
+      <h3>{{ store.name }}</h3>
+      <p>{{ store.address }}</p>
+      <a class="btn btn--brand" [href]="mapsUrl" target="_blank" rel="noopener">Ver rota no Google Maps</a>
+    </div>
+  </div>
+</section>

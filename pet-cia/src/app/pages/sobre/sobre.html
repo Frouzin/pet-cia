@@ -1,0 +1,113 @@
+<!-- ===== Cabeçalho da página ===== -->
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Sobre a Pet&amp;Cia</span>
+    <h1>Uma paixão por animais que virou loja de bairro</h1>
+    <p>Desde 2013 cuidando de cães, gatos, aves e peixes — e das pessoas que os amam.</p>
+  </div>
+</section>
+
+<!-- ===== História ===== -->
+<section class="section section--surface">
+  <div class="container story">
+    <div class="story__text">
+      <span class="eyebrow">Nossa história</span>
+      <h2>Começou com um pote de ração e muito amor por bichos</h2>
+      <p>
+        A Pet&amp;Cia nasceu em 2013, quando a Ana transformou o carinho pelos animais
+        em um pequeno comércio na esquina do bairro. O que era uma lojinha de ração
+        virou ponto de encontro dos tutores da região.
+      </p>
+      <p>
+        Hoje somos referência em nutrição, higiene e acessórios — sempre com o mesmo
+        princípio do primeiro dia: <strong>atender cada pet como se fosse da família</strong>.
+        Trabalhamos apenas com marcas de confiança e ajudamos você a escolher o que
+        realmente faz bem para o seu companheiro.
+      </p>
+
+      <div class="story__actions">
+        <a routerLink="/catalogo" class="btn btn--brand">Ver nosso catálogo</a>
+        <a routerLink="/contato" class="btn btn--ghost">Visite a loja</a>
+      </div>
+    </div>
+
+    <div class="story__visual" aria-hidden="true">
+      <div class="collage">
+        <span class="c1">🐶</span>
+        <span class="c2">🐱</span>
+        <span class="c3">🦴</span>
+        <span class="c4">🐟</span>
+        <span class="c5">🐾</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Números ===== -->
+<section class="section section--tint">
+  <div class="container">
+    <div class="about-stats">
+      @for (s of stats; track s.label) {
+        <div class="about-stat">
+          <span class="about-stat__value">{{ s.value }}</span>
+          <span class="about-stat__label">{{ s.label }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ===== Valores ===== -->
+<section class="section section--surface">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">No que acreditamos</span>
+      <h2>Nossos valores</h2>
+    </div>
+    <div class="values-grid">
+      @for (v of values; track v.title) {
+        <div class="value-card card">
+          <span class="value-card__icon" aria-hidden="true">{{ v.icon }}</span>
+          <h3>{{ v.title }}</h3>
+          <p>{{ v.text }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ===== Equipe ===== -->
+<section class="section section--tint">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Gente que cuida</span>
+      <h2>Quem te atende na Pet&amp;Cia</h2>
+      <p>Uma equipe pequena, apaixonada por bichos e sempre pronta para ajudar.</p>
+    </div>
+    <div class="team-grid">
+      @for (m of team; track m.name) {
+        <div class="team-card card">
+          <span class="team-card__avatar" aria-hidden="true">{{ m.emoji }}</span>
+          <strong>{{ m.name }}</strong>
+          <small>{{ m.role }}</small>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-band">
+  <div class="container cta-band__inner">
+    <div>
+      <h2>Venha conhecer a gente</h2>
+      <p>Passe na loja para um café e um carinho no seu pet. 🐾</p>
+    </div>
+    <div class="cta-band__actions">
+      <a [href]="wa" target="_blank" rel="noopener" class="btn btn--primary">
+        <span aria-hidden="true">💬</span> Falar no WhatsApp
+      </a>
+      <a routerLink="/contato" class="btn btn--light">Ver endereço</a>
+    </div>
+  </div>
+</section>
